@@ -14,9 +14,12 @@ Second: Write a query that directly answers a predetermined question from a busi
   
   b) Then I created tables using pgAdmin4 and imported the CSV file to the Postgres database. please see the code in 2.Table_Created&import_code.sql
   
-  c) I chose to answer the first bullet point question which is What are the top 5 brands by receipts scanned for a most recent month?
+  c) I chose to answer the first and second bullet point questions which are What are the top 5 brands by receipts scanned for a most recent month? and How does the ranking of the top 5 brands by receipts scanned for the recent month compare to the ranking for the previous month?
   
-  d) please see my SQL code and output in 2.top_5_brand_code.sql; 2.top_5_brand_output_data.csv
+  d) please see my SQL code and output in 2.top_5_brand_code.sql; 2.top_5_brand_output_data.csv / 
+  2.2previous_month_comparison.sql; 2.2 previou_comparison_output.csv
+
+  e) for 2.2 output, because the receipt data, which includes brand information after joining, is only available from January 2021, we lack data for the preceding months, resulting in null outputs for those periods.
   
 
 Third: Evaluate Data Quality Issues in the Data Provided
