@@ -46,4 +46,4 @@ select
 from ranked_brand as r1
 left join ranked_brand as r2
 on r1.name = r2.name and r1.past_n_month +1  = r2.past_n_month
-where r1.top_n_brand <=5
+where r1.top_n_brand <=5 and r1.past_n_month = 1
