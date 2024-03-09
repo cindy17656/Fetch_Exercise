@@ -26,17 +26,26 @@ brand_date as(
 ranked_month as(
 	select
 	 name
-	, count(distinct receipt_id) brand_count
-	, rank() over(partition by name order by max(date_trunc('month', datescanned)) desc) as past_n_month
+	,receipt_id
+	,datescanned
+	, rank() over(partition by name order by date_trunc('month', datescanned) desc) as past_n_month
 	from brand_date
-	group by name
+
+),
+count_brand as (
+	select
+	 name
+	 ,past_n_month
+	 , count(receipt_id) as brand_count
+	from ranked_month
+	group by name, past_n_month
 ),
 ranked_brand as(
 	select 
 	 name
 	,past_n_month
 	,rank() over(partition by past_n_month order by brand_count desc) as top_n_brand
-	from ranked_month
+	from count_brand
 )
 select
  r1.name
